@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   openOptionsPrice: false,
+  hideSearchBar: false,
 };
 
 const uiSlice = createSlice({
@@ -11,8 +12,11 @@ const uiSlice = createSlice({
     setOpenOptionsPrice: (state) => {
       state.openOptionsPrice = !state.openOptionsPrice;
     },
+    setHideSearchBar: (state, action) => {
+      state.hideSearchBar = action.payload;
+    },
   },
 });
 
 export default uiSlice.reducer;
-export const { setOpenOptionsPrice } = uiSlice.actions;
+export const { setOpenOptionsPrice, setHideSearchBar } = uiSlice.actions;

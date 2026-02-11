@@ -1,8 +1,12 @@
 "use client";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { HeartIcon } from "@heroicons/react/24/solid";
 import { updateFavoriteCar } from "@/lib/features/cars/carsSlice";
+import { useRouter } from "next/navigation";
+import { setHideSearchBar } from "@/lib/features/ui/uiSlice";
+
 export default function CarCard({ car }) {
+  const router = useRouter();
   const dispatch = useDispatch();
   return (
     <div
@@ -68,7 +72,13 @@ export default function CarCard({ car }) {
           ${car.price}.00/
           <span className="text-[#90A3BF] text-[14px]">day</span>
         </div>
-        <div className="bg-[#3563E9] hover:bg-[#5A7FEF] cursor-pointer transition-colors duration-200 w-[116px] h-44px border rounded-[4px] flex items-center justify-center text-[16px]">
+        <div
+          className="bg-[#3563E9] hover:bg-[#5A7FEF] cursor-pointer transition-colors duration-200 w-[116px] h-44px border rounded-[4px] flex items-center justify-center text-[16px]"
+          onClick={() => {
+            dispatch(setHideSearchBar(true));
+            router.push("/rent");
+          }}
+        >
           Rent Now
         </div>
       </div>
