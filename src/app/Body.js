@@ -4,21 +4,26 @@ import { useSelector } from "react-redux";
 
 export default function Body() {
   const cars = useSelector((state) => state.cars);
-  const favorite = useSelector((state) => state.filters.favorite);
-  const searchField = useSelector((state) => state.filters.searchField);
-  const price = useSelector((state) => state.filters.priceSlider);
-  const carsFilterd = (favorite ? cars.filter((car) => car.favorite) : cars)
+  const filters = useSelector((state) => state.filters);
+  const carsFilterd = (
+    filters.favorite ? cars.filter((car) => car.favorite) : cars
+  )
     .filter(
       (car) =>
-        searchField === "" ||
-        car.name.toLowerCase().includes(searchField.toLowerCase()),
+        filters.searchField === "" ||
+        car.name.toLowerCase().includes(filters.searchField.toLowerCase()),
     )
-    .filter((car) => car.price <= price);
-  cars.map((c) => {
-    console.log("car", c.price);
-  });
-  console.log("price", price);
-
+    .filter((car) => car.price <= filters.priceSlider)
+    .filter((car) =>
+      filters.filterTypes.length === 0
+        ? true
+        : filters.filterTypes.includes(car.type),
+    )
+    .filter((car) =>
+      filters.filterCapacities.length === 0
+        ? true
+        : filters.filterCapacities.includes(car.capacity),
+    );
   const carsList = carsFilterd.map((car) => {
     return <CarCard key={car.id} car={car} />;
   });
