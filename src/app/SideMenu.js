@@ -77,11 +77,11 @@ export default function SideMenu() {
               }}
               type="range"
               min="0"
-              max="100"
+              max="200"
               className="w-full h-2 bg-gray-300 rounded accent-blue-500 cursor-pointer"
             />
             <div className="text-[20px] text-[#596780]">${priceSlider}.00</div>
-            <div className="text-[20px] text-[#596780]">MAX.$100.00</div>
+            <div className="text-[20px] text-[#596780]">MAX.$200.00</div>
           </div>
         </div>
       </div>

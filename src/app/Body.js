@@ -6,13 +6,18 @@ export default function Body() {
   const cars = useSelector((state) => state.cars);
   const favorite = useSelector((state) => state.filters.favorite);
   const searchField = useSelector((state) => state.filters.searchField);
-  const carsFilterd = (
-    favorite ? cars.filter((car) => car.favorite) : cars
-  ).filter(
-    (car) =>
-      searchField === "" ||
-      car.name.toLowerCase().includes(searchField.toLowerCase()),
-  );
+  const price = useSelector((state) => state.filters.priceSlider);
+  const carsFilterd = (favorite ? cars.filter((car) => car.favorite) : cars)
+    .filter(
+      (car) =>
+        searchField === "" ||
+        car.name.toLowerCase().includes(searchField.toLowerCase()),
+    )
+    .filter((car) => car.price <= price);
+  cars.map((c) => {
+    console.log("car", c.price);
+  });
+  console.log("price", price);
 
   const carsList = carsFilterd.map((car) => {
     return <CarCard key={car.id} car={car} />;

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   searchField: "",
-  priceSlider: 50,
+  priceSlider: 200,
   filterOptions: [],
   favorite: false,
 };
