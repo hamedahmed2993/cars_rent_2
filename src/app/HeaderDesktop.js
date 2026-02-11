@@ -86,7 +86,7 @@ export default function HeaderDesktop() {
         <div
           className="relative w-[44px] h-[44px] border border-[#C3D4E9] rounded-full "
           onClick={() => {
-            router.push("/homeCarRent/notification");
+            router.push("/notification");
           }}
         >
           <div className="flex items-center justify-center w-full h-full">
@@ -101,7 +101,7 @@ export default function HeaderDesktop() {
         <div
           className="w-[44px] h-[44px] border border-[#C3D4E9] rounded-full flex items-center justify-center"
           onClick={() => {
-            router.push("/homeCarRent/settings");
+            router.push("/settings");
           }}
         >
           <Cog6ToothIcon className="w-[24px] h-[24px]" />
@@ -111,7 +111,7 @@ export default function HeaderDesktop() {
         {/* PROFILE IMAGE */}
         <div
           onClick={() => {
-            router.push("/homeCarRent/profile");
+            router.push("/profile");
           }}
           className="w-[44px] h-[44px] border border-[#C3D4E9] rounded-full overflow-hidden flex items-center justify-center"
         >

@@ -65,7 +65,7 @@ export default function HeaderMobile() {
               <div
                 className="relative w-[44px] h-[44px] border border-[#C3D4E9] rounded-full "
                 onClick={() => {
-                  router.push("/homeCarRent/notification");
+                  router.push("/notification");
                 }}
               >
                 <div className="flex items-center justify-center w-full h-full">
@@ -79,7 +79,7 @@ export default function HeaderMobile() {
               {/* SETTINGS */}
               <div
                 onClick={() => {
-                  router.push("/homeCarRent/settings  ");
+                  router.push("/settings  ");
                 }}
                 className="hover:cursor-pointer relative w-[44px] h-[44px] border border-[#C3D4E9] rounded-full flex items-center justify-center"
               >
@@ -105,7 +105,7 @@ export default function HeaderMobile() {
               if (openOptions === false) {
                 setOpenOptions(true);
               } else {
-                router.push("/homeCarRent/profile");
+                router.push("/profile");
               }
             }}
             className="relative hover:cursor-pointer w-[44px] h-[44px] border border-[#C3D4E9] rounded-full overflow-hidden flex items-center justify-center"
