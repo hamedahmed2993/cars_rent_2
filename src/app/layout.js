@@ -1,6 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./StoreProvider";
+import HeaderDesktop from "./HeaderDesktop";
+import HeaderMobile from "./HeaderMobile";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,8 +36,16 @@ export default function RootLayout({ children, modal }) {
         className={`overflow-hidden ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <StoreProvider>
-          {children}
-          {modal}
+          <div className="w-full bg-[#F6F7F9] h-screen overflow-hidden flex flex-col">
+            <div className="hidden md:block">
+              <HeaderDesktop />
+            </div>
+            <div className="block md:hidden">
+              <HeaderMobile />
+            </div>
+            {children}
+            {modal}
+          </div>
         </StoreProvider>
       </body>
     </html>
